@@ -1,35 +1,27 @@
-/* Reset some defaults */
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  margin: 0; padding: 0; height: 100%;
   font-family: Arial, sans-serif;
+  overflow-x: hidden; /* no horizontal scrollbar during slide */
 }
 
-body {
-  overflow-x: hidden; /* prevent horizontal scrollbar during slide */
-}
-
-/* Barba wrapper fills the viewport */
 [data-barba="wrapper"] {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
 }
 
-/* Container styles */
 [data-barba="container"] {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   min-height: 100vh;
   padding: 2rem;
-  
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* align content at top */
+  justify-content: flex-start; /* keep content aligned top */
   align-items: flex-start;
-  box-sizing: border-box;
+  
   background: white;
 }
