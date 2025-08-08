@@ -19,9 +19,6 @@ header {
   background: #1f1f1f;
   padding: 1rem 2rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 nav ul {
@@ -47,10 +44,12 @@ main {
   max-width: 900px;
   margin: 0 auto;
   
-  /* For smooth fade/slide transitions */
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  /* Fix vertical alignment during page transitions */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: calc(100vh - 72px); /* header height approx */
 }
 
 h1 {
@@ -65,19 +64,11 @@ p {
   color: #ccc;
 }
 
-/* Barba page transition classes */
-main.is-exiting {
-  opacity: 0;
-  transform: translateY(20px);
+/* Barba.js transition wrapper and container styles */
+[data-barba="wrapper"] {
+  overflow-x: hidden;
 }
 
-main.is-entering {
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-main.is-entered {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+[data-barba="container"] {
+  width: 100%;
 }
