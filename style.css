@@ -1,4 +1,4 @@
-/* General Reset */
+/* Reset and basics */
 * {
   margin: 0;
   padding: 0;
@@ -6,65 +6,78 @@
 }
 
 body {
-  font-family: sans-serif;
-  background: white;
-  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #121212;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header and Navigation */
 header {
-  position: fixed;       /* Always visible at top */
+  background: #1f1f1f;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: #003366;
-  z-index: 1000;         /* Above everything else */
-  display: flex;
-  align-items: center;
+  z-index: 100;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 2rem;
-  padding: 0 2rem;
 }
 
 nav a {
-  color: white;
+  color: #eee;
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #00bcd4;
 }
 
-/* Push content below fixed header */
-body {
-  padding-top: 60px;
+main {
+  flex-grow: 1;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  
+  /* For smooth fade/slide transitions */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Barba Wrapper & Containers */
-[data-barba="wrapper"] {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  z-index: 1;
+h1 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #00bcd4;
 }
 
-[data-barba="container"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: calc(100vh - 60px); /* Adjust for header height */
-  padding: 2rem 3rem;
-  background: white;
-  z-index: 1;
+p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #ccc;
+}
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Keep content at top */
-  align-items: flex-start;
+/* Barba page transition classes */
+main.is-exiting {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+main.is-entering {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+main.is-entered {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
