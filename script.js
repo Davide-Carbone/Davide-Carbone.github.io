@@ -1,22 +1,11 @@
 barba.init({
-  sync: true,
   transitions: [{
-    name: 'slide',
-    async leave(data) {
-      await gsap.to(data.current.container, {
-        x: '-100%',
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power2.inOut'
-      });
+    name: 'fade',
+    leave(data) {
+      return gsap.to(data.current.container, {opacity: 0, duration: 0.6});
     },
     enter(data) {
-      return gsap.from(data.next.container, {
-        x: '100%',
-        opacity: 0,
-        duration: 1.2,      // slower fade-in + slide-in
-        ease: 'power2.inOut'
-      });
+      return gsap.from(data.next.container, {opacity: 0, duration: 0.6});
     },
     beforeEnter() {
       window.scrollTo(0, 0);
