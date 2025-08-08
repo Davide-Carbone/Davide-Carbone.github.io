@@ -1,74 +1,116 @@
-/* Reset and basics */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --bg: #070707;            /* page background */
+  --panel: #0f1113;         /* content panel */
+  --muted-panel: rgba(255,255,255,0.03);
+  --text: #e8e8e8;          /* main text */
+  --muted: #bfc6c9;         /* secondary text */
+  --accent: #00bcd4;        /* accent color */
+  --header-h: 72px;
+  --max-width: 960px;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background: #121212;
-  color: #eee;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height:1.6;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  padding-top: var(--header-h); /* leave space for fixed header */
+  -webkit-font-smoothing:antialiased;
 }
 
-header {
-  background: #1f1f1f;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:var(--header-h);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg,#0b0b0b,#0a0a0a);
+  z-index:1000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+/* NAV */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:1.8rem;
+  align-items:center;
+}
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:0.2px;
+  padding:0.25rem 0.1rem;
+  transition: color .22s ease, transform .18s ease;
+}
+nav a:hover{ color: var(--accent); transform: translateY(-2px); }
+
+/* Barba wrapper (holds stacked pages) */
+[data-barba="wrapper"]{
+  position:relative;
+  overflow:hidden;
+  flex:1 1 auto;
 }
 
-nav a {
-  color: #eee;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+/* Each page container (stacked and animated) */
+[data-barba="container"]{
+  position:absolute;
+  top: var(--header-h);
+  left:0;
+  width:100%;
+  min-height: calc(100vh - var(--header-h));
+  padding: 2.25rem 1.25rem;
+  display:flex;
+  justify-content:flex-start; /* keep content at top */
+  align-items:flex-start;
+  box-sizing:border-box;
+  /* don't add background here — use .page panel below */
 }
 
-nav a:hover {
-  color: #00bcd4;
-}
-
-main {
-  flex-grow: 1;
-  padding: 3rem 2rem;
-  max-width: 900px;
+/* Actual content panel (centered, card-like) */
+.page{
+  width:100%;
+  max-width: var(--max-width);
   margin: 0 auto;
-  
-  /* Fix vertical alignment during page transitions */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-height: calc(100vh - 72px); /* header height approx */
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  color: var(--text);
 }
 
-h1 {
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: #00bcd4;
+/* Typography */
+h1{
+  font-size:1.9rem;
+  margin-bottom:0.6rem;
+  color: var(--accent);
+  font-weight:700;
+}
+h2{
+  color:var(--text);
+  margin-top:1.25rem;
+  margin-bottom:0.5rem;
+}
+p{ color: var(--muted); font-size:1.03rem; line-height:1.6 }
+
+/* Small responsive tweaks */
+@media (max-width:720px){
+  .page{ padding:1.25rem; margin: 1rem; border-radius:10px }
+  nav ul{ gap:1rem }
+  h1{ font-size:1.4rem }
 }
 
-p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: #ccc;
-}
-
-/* Barba.js transition wrapper and container styles */
-[data-barba="wrapper"] {
-  overflow-x: hidden;
-}
-
-[data-barba="container"] {
-  width: 100%;
-}
+/* Optional light helpers for transitions (fallback) */
+[data-barba="container"].is-entering{ opacity:0; transform: translateY(-6px) }
+[data-barba="container"].is-exiting{ opacity:0; transform: translateY(6px) }
