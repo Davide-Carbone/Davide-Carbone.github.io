@@ -22,3 +22,13 @@ barba.init({
     }
   }]
 });
+
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    const currentPath = window.location.pathname.split('/').pop();
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath) {
+      e.preventDefault();
+    }
+  });
+});
