@@ -58,7 +58,7 @@ nav a:hover{ color: var(--accent); transform: translateY(-2px); }
 /* Barba wrapper (holds stacked pages) */
 [data-barba="wrapper"]{
   position:relative;
-  overflow:hidden;
+  overflow:visible;
   flex:1 1 auto;
 }
 
