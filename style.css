@@ -91,6 +91,52 @@ nav a:hover{ color: var(--accent); transform: translateY(-2px); }
   color: var(--text);
 }
 
+/* Teaching entry container */
+.teaching-entry {
+  background: var(--panel);
+  border: 1px solid var(--muted-panel);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease;
+}
+
+.teaching-entry:hover {
+  background: rgba(0, 188, 212, 0.1); /* subtle accent highlight */
+}
+
+/* Teaching entry heading */
+.teaching-entry h3 {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Teaching entry paragraphs */
+.teaching-entry p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+
+/* Smaller text for course coordinator */
+.teaching-entry small {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(191, 198, 201, 0.7);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* Italic emphasis */
+em {
+  font-style: italic;
+  color: var(--accent);
+}
+
 /* Typography */
 h1{
   font-size:1.9rem;
