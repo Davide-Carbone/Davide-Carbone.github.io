@@ -5,7 +5,7 @@ barba.init({
       return gsap.to(current.container, {
         x: '-100%',
         opacity: 0,
-        duration: 0.6,
+        duration: 0.3, // faster fade
         ease: 'power1.inOut'
       });
     },
@@ -13,12 +13,12 @@ barba.init({
       gsap.set(next.container, {x: '100%', opacity: 1});
       return gsap.to(next.container, {
         x: '0%',
-        duration: 0.6,
+        duration: 0.3, // faster slide
         ease: 'power1.inOut'
       });
     },
     beforeEnter() {
-      window.scrollTo(0, 0); // reset scroll to top on new page
+      window.scrollTo(0, 0);
     }
   }]
 });
