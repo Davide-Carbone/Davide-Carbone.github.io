@@ -63,17 +63,18 @@ nav a:hover{ color: var(--accent); transform: translateY(-2px); }
 }
 
 /* Each page container (stacked and animated) */
-[data-barba="container"]{
-  position:absolute;
+[data-barba="container"] {
+  position: absolute;
   top: var(--header-h);
-  left:0;
-  width:100%;
+  left: 0;
+  width: 100%;
   min-height: calc(100vh - var(--header-h));
   padding: 2.25rem 1.25rem;
-  display:flex;
-  justify-content:flex-start; /* keep content at top */
-  align-items:flex-start;
-  box-sizing:border-box;
+  display: flex;
+  flex-direction: column;      /* stack items vertically */
+  justify-content: flex-start; /* keep content at top */
+  align-items: flex-start;
+  box-sizing: border-box;
   /* don't add background here — use .page panel below */
 }
 
