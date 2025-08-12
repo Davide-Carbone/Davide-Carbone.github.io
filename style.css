@@ -1,10 +1,10 @@
 :root{
-  --bg: #070707;            /* page background */
-  --panel: #0f1113;         /* content panel */
+  --bg: #1a1a1a;            /* page background */
+  --panel: #2c2c2c;         /* content panel */
   --muted-panel: rgba(255,255,255,0.03);
-  --text: #e8e8e8;          /* main text */
-  --muted: #bfc6c9;         /* secondary text */
-  --accent: #00bcd4;        /* accent color */
+  --text: #f2f2f2;          /* main text */
+  --muted: #a0a0a0;         /* secondary text */
+  --accent: #007bff;        /* accent color */
   --header-h: 72px;
   --max-width: 960px;
 }
@@ -19,8 +19,8 @@ html, body {
   height: 100%;
 }
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  background: var(--panel);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
@@ -39,30 +39,65 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #0b0b0b, #0a0a0a);
+  background: var(--bg);
   z-index: 1000;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
 }
 
 /* NAV */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1.8rem;
-  align-items: center;
+  gap: 0.5rem;
+  align-items: flex-end;
+  height: 100%;
+  position: relative; /* To position the highlight element */
 }
 nav a {
-  color: var(--text);
+  color: var(--muted);
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 0.2px;
-  padding: 0.25rem 0.1rem;
-  transition: color 0.22s ease, transform 0.18s ease;
+  padding: 0.8rem 1.2rem;
+  transition: color 0.22s ease, background-color 0.22s ease;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  position: relative;
+  z-index: 1;
 }
+
 nav a:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
+  color: var(--text);
+}
+
+nav a.active {
+  color: var(--text);
+}
+
+.highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0; /* Will be updated by JS */
+  height: 100%;
+  background-color: var(--panel);
+  border: 1px solid var(--muted-panel);
+  border-bottom: 0;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  z-index: -1; /* Behind the link text */
+  transition: all 0.4s ease-in-out;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  right: -1px;
+  height: 2.25rem;
+  background: var(--panel);
+  border-left: 1px solid var(--muted-panel);
+  border-right: 1px solid var(--muted-panel);
 }
 
 /* Barba wrapper (holds stacked pages) */
@@ -71,22 +106,17 @@ nav a:hover {
   flex: 1 1 auto;
   overflow-y: auto; /* scroll if needed */
   /* height: auto; let content define height */
+  background: var(--bg);
 }
 
 /* Each page container (stacked and animated) */
 [data-barba="container"] {
-  position: relative; /* changed from absolute to relative */
-  top: 0; /* reset top */
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
-  min-height: auto; /* remove fixed min-height */
-  padding: 2.25rem 1.25rem;
-  display: flex;
-  flex-direction: column;      /* stack items vertically */
-  justify-content: flex-start; /* keep content at top */
-  align-items: flex-start;
-  box-sizing: border-box;
-  /* don't add background here — use .page panel below */
+  height: 100%;
+  padding: 0 1.25rem;
 }
 
 /* Actual content panel (centered, card-like) */
@@ -94,12 +124,43 @@ nav a:hover {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2rem;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.03);
-  border-radius: 12px;
+  padding: 2.25rem 2rem 2rem;
+  background: var(--panel);
+  border: 1px solid var(--muted-panel);
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   color: var(--text);
+  position: relative;
+  z-index: 1;
+}
+
+.year-title {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.year-title::before {
+  content: '▶';
+  position: absolute;
+  left: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.year-title.open::before {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.year-content {
+  display: none;
+  padding-left: 1rem;
 }
 
 /* Teaching entry container */
