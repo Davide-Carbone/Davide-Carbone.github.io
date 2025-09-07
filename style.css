@@ -113,3 +113,8 @@ footer {
   text-decoration: underline;
 }
 
+/* Publications styling */
+ol li {
+  margin-bottom: 1rem;
+}
+

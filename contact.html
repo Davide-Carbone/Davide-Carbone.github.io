@@ -25,7 +25,7 @@
     <main data-barba="container" data-barba-namespace="contact">
       <div class="page">
         <h1>Contact</h1>
-        <p>You can reach me at my institutional email address: [email protected]</p>
+        <p>You can reach me at: <span id="email-reveal" style="cursor: pointer; color: #0066cc; text-decoration: underline;">Click to reveal email</span></p>
       </div>
     </main>
   </div>
@@ -33,5 +33,26 @@
   <script src="https://unpkg.com/@barba/core"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="script.js"></script>
+  
+  <script>
+    // Email obfuscation - replace with your actual email
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailReveal = document.getElementById('email-reveal');
+      if (emailReveal) {
+        emailReveal.addEventListener('click', function() {
+          // Obfuscated email parts - replace these with your actual email parts
+          const user = 'davide[d0t]carbone'; // Replace with your email username
+          const domain = 'phys[d0t]ens[d0t]fr'; // Replace with your email domain
+          
+          // Display in obfuscated format
+          const obfuscatedEmail = user + '[at]' + domain;
+          emailReveal.textContent = obfuscatedEmail;
+          emailReveal.style.cursor = 'default';
+          emailReveal.style.textDecoration = 'none';
+          emailReveal.style.color = '#000';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
