@@ -13,6 +13,46 @@
   padding: 0;
 }
 
+.publication {
+    margin-top: 6px;
+    font-size: 0.85em;     /* smaller text */
+    font-style: italic;    /* italic text */
+}
+
+.publication a {
+    color: inherit;        /* same color as text */
+    text-decoration: none; /* no underline by default */
+    transition: color 0.2s ease;
+}
+
+.publication a:hover {
+    text-decoration: underline;
+}
+
+.profile-pic {
+    display: block;
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.social-links img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-links img:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
 html, body {
   height: 100%;
 }
