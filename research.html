@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .research-topics { display: grid; gap: 16px; }
+  </style>
 </head>
 <body>
 <header>
@@ -24,7 +27,7 @@
 <main>
   <div class="page">
     <h1>Research Path</h1>
-    <ul>
+    <ul class="research-topics">
   <li>
     <strong>Advanced Monte Carlo methods for molecular simulations.</strong>
     My current main research line, with Marylou Gabrié, Tony Lelièvre, Gabriel Stoltz, and Christoph Schönle, focuses on overcoming metastability in Monte Carlo simulations 
@@ -47,37 +50,92 @@
 
   <li>
     <strong>Non-equilibrium statistical mechanics and response theory.</strong>
-   My research addresses time-reversal symmetry and response theory in classical and quantum systems, including dynamics with magnetic fields. I derived Onsager reciprocity relations and fluctuation theorems without Casimir modifications, showing that spin–field interactions preserve time-reversal invariance, with implications for transport and thermodynamic phenomena.
+   My research in this area addresses time-reversal symmetry and response theory in classical and quantum systems, including dynamics with magnetic fields. I derived Onsager reciprocity relations and fluctuation theorems without Casimir modifications, showing that spin–field interactions preserve time-reversal invariance, with implications for transport and thermodynamic phenomena.
 I also work on the transient time correlation function (TTCF) approach to nonequilibrium response, applying it to prototypical statistical mechanical models such as Fermi–Pasta–Ulam chains and the Lorentz gas, with a focus on anomalous transport and scaling behavior in low-dimensional systems.
       <img src="https://placehold.co/800x400?text=Non-Equilibrium+Visualization" alt="Media for non-equilibrium statistical mechanics" style="width:100%; max-width:720px; height:auto; border-radius:6px;">
     </div>
-    <div style="margin-top: 6px;">
-      <a href="https://arxiv.org/abs/0000.00002" target="_blank" rel="noopener noreferrer">Paper link (placeholder)</a>
-    </div>
+
   </li>
 
   <li>
     <strong>Generative models and statistical physics.</strong>
-    I apply non-equilibrium statistical mechanics to generative modeling, especially Energy-Based Models. Using Jarzynski’s equality and Sequential Monte Carlo methods, I developed unbiased training algorithms that outperform contrastive divergence, with applications to diffusion models and Restricted Boltzmann Machines.
-    <div class="research-media" style="margin-top: 8px;">
-      <img src="https://placehold.co/800x400?text=Generative+Models+Demo" alt="Media for generative models and statistical physics" style="width:100%; max-width:720px; height:auto; border-radius:6px;">
-    </div>
-    <div style="margin-top: 6px;">
-      <a href="https://arxiv.org/abs/0000.00003" target="_blank" rel="noopener noreferrer">Paper link (placeholder)</a>
-    </div>
+    I apply non-equilibrium statistical mechanics to generative modeling, especially Energy-Based Models. Using Jarzynski’s free energy estimator and Sequential Monte Carlo methods, I developed unbiased training algorithms that outperform contrastive divergence, with applications to diffusion models and Restricted Boltzmann Machines.
+<div class="research-media" style="margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap;">
+  <img src="ti_vs_jarzynski_langevin_chains.gif" 
+       alt="Media for generative models and statistical physics" 
+       style="flex: 1; max-width: 60%; height: auto; border-radius: 6px;">
+  <img src="images/cifar_10.png" 
+       alt="Second media image" 
+       style="flex: 1; max-width: 25%; height: auto; border-radius: 6px;">
+</div>
+<div class="publication">
+  <details>
+    <summary>
+      <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/a4ddb865e0a8ca3cca43fd7387b4b0da-Abstract-Conference.html"
+         target="_blank" rel="noopener noreferrer">
+         [1]
+      </a>
+    </summary>
+    Carbone, D., Hua, M., Coste, S., & Vanden-Eijnden, E. (2023).
+    Efficient training of energy-based models using Jarzynski equality.
+    NeurIPS 2023.
+  </details>
+</div>
+<div class="publication">
+  <details>
+    <summary>
+      <a href="https://link.springer.com/chapter/10.1007/978-3-031-69146-1_23"
+         target="_blank"
+         rel="noopener noreferrer">
+         [2]
+      </a>
+    </summary>
+    Carbone, D., Hua, M., Coste, S., & Vanden-Eijnden, E. (2024, February). Generative models as out-of-equilibrium particle systems: training of Energy-Based Models using non-equilibrium thermodynamics. In International Conference on Nonlinear Dynamics and Applications (pp. 287-311).
+  </a>
+</div>
+<div class="publication">
+  <details>
+    <summary>
+      <a href="https://openreview.net/forum?id=VTgixSbrJI"
+         target="_blank"
+         rel="noopener noreferrer">
+         [3]
+      </a>
+    </summary>
+    Carbone, D. Hitchhiker's guide on the relation of Energy-Based Models with other generative models, sampling and statistical physics: a comprehensive review. Transactions on Machine Learning Research (TMLR), 2025.
+  </details>
+</div>
   </li>
 
   <li>
     <strong>Latent variable models and sequential Monte Carlo.</strong>
-    I developed non-equilibrium Monte Carlo methods for latent variable models, 
+    Working with James Cuin and Deniz Akyildiz, we developed non-equilibrium Monte Carlo methods for latent variable models, 
     enabling efficient estimation of marginal likelihoods and model selection, supported by 
-    non-asymptotic convergence analysis.
+    non-asymptotic convergence analysis. Moreover, with Yanbo Tang, we generalized this approach is SMC, for instance for reward training of EBMs.
     <div class="research-media" style="margin-top: 8px;">
-      <img src="https://placehold.co/800x400?text=Latent+Variables+SMC" alt="Media for latent variable models and SMC" style="width:100%; max-width:720px; height:auto; border-radius:6px;">
+      <img src="images/jala.png" alt="Media for latent variable models and SMC" style="width:100%; max-width:720px; height:auto; border-radius:6px;">
     </div>
-    <div style="margin-top: 6px;">
-      <a href="https://arxiv.org/abs/0000.00004" target="_blank" rel="noopener noreferrer">Paper link (placeholder)</a>
-    </div>
+<div class="publication">
+  <details>
+    <summary>
+      <a href="https://openreview.net/forum?id=LpY1jgtk8I"
+         target="_blank"
+         rel="noopener noreferrer">
+         [1]
+      </a>
+    </summary>
+Cuin, J., Carbone, D., & Akyildiz, O. D., Learning Latent Variable Models via Jarzynski-adjusted Langevin Algorithm. In The Thirty-ninth Annual Conference on Neural Information Processing Systems (NeurIPS), 2025. </details>
+</div>
+<div class="publication">
+  <details>
+    <summary>
+      <a href="https://arxiv.org/abs/2601.22003"
+         target="_blank"
+         rel="noopener noreferrer">
+         [2]
+      </a>
+    </summary>
+Cuin, J., Carbone, D., Tang, Y., & Akyildiz, O. D. (2026). Efficient Stochastic Optimisation via Sequential Monte Carlo. arXiv preprint.</div>
   </li>
 
   <li>
@@ -94,8 +152,7 @@ I also work on the transient time correlation function (TTCF) approach to nonequ
   </div>
   <div class="page">
     <h2>Publications</h2>
-    <p>A list of my publications is available, showcasing my contributions to the field. For a detailed overview, please visit the dedicated publications page.</p>
-    <a href="publications.html" class="button">Learn More...</a>
+    <p>A list of my publications is available, showcasing my contributions to the field. For a detailed overview, please visit the dedicated <a href="publications.html">publications page</a>.</p>
   </div>
 </main>
 
