@@ -15,13 +15,18 @@
 
 .lab-link {
     color: rgb(120, 56, 81);
-    text-decoration: none;
+    text-decoration: none; /* no underline by default */
 }
+
+/* Only underline on hover */
 .lab-link:hover {
     text-decoration: underline;
 }
+
+/* Maintain same color and remove underline for visited links */
 .lab-link:visited {
     color: rgb(120, 56, 81);
+    text-decoration: none; /* explicitly remove underline */
 }
 
 .publication {
