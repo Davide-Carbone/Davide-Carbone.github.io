@@ -13,12 +13,24 @@
   padding: 0;
 }
 
+.lab-link {
+    color: rgb(120, 56, 81);
+    text-decoration: none;
+}
+.lab-link:hover {
+    text-decoration: underline;
+}
+.lab-link:visited {
+    color: rgb(120, 56, 81);
+}
+
 .publication {
     margin-top: 6px;
     font-size: 0.85em;     /* smaller text */
     font-style: italic;    /* italic text */
 }
 
+/* Links inside publication */
 .publication a {
     color: inherit;        /* same color as text */
     text-decoration: none; /* no underline by default */
@@ -29,6 +41,33 @@
     text-decoration: underline;
 }
 
+/* Summary styling */
+.publication summary {
+    cursor: pointer;
+    list-style: none;       /* remove default marker */
+    position: relative;
+    padding-left: 1.2em;   /* space for custom triangle */
+}
+
+/* Custom triangle using pseudo-element */
+.publication summary::before {
+    content: "▶";           /* right-pointing triangle */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: black;           /* default color */
+    transition: color 0.2s ease;
+}
+
+/* Triangle color on hover of summary */
+.publication summary:hover::before {
+    color: rgb(120, 56, 81); /* triangle color on hover */
+}
+
+/* Optional: rotate triangle when open */
+.publication details[open] summary::before {
+    transform: rotate(90deg);
+}
 .profile-pic {
     display: block;
     margin: 0 auto;
