@@ -13,6 +13,22 @@
   padding: 0;
 }
 
+/* Global link style for body content (not nav, breadcrumb, or publication lists) */
+.page a {
+    color: rgb(120, 56, 81);
+    text-decoration: none; /* no underline by default */
+}
+
+.page a:hover {
+    text-decoration: underline;
+}
+
+.page a:visited {
+    color: rgb(120, 56, 81);
+    text-decoration: none; /* explicitly remove underline */
+}
+
+/* Keep the original class for backwards compatibility */
 .lab-link {
     color: rgb(120, 56, 81);
     text-decoration: none; /* no underline by default */
