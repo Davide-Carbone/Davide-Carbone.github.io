@@ -20,6 +20,15 @@
     font-weight: 600; /* make colored links bold */
 }
 
+/* Make non-anchor interactive elements look like page links when needed */
+.page-link-like {
+    color: rgb(120, 56, 81);
+    font-weight: 600;
+}
+.page-link-like:hover {
+    text-decoration: underline;
+}
+
 .page a:hover {
     text-decoration: underline;
 }

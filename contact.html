@@ -25,7 +25,7 @@
     <main data-barba="container" data-barba-namespace="contact">
       <div class="page">
         <h1>Contact</h1>
-        <p>You can reach me at: <span id="email-reveal" style="cursor: pointer; color: #0066cc; text-decoration: underline;">Click to reveal email</span></p>
+        <p>You can reach me at: <span id="email-reveal" class="page-link-like" style="cursor: pointer;">Click to reveal email</span></p>
       </div>
     </main>
   </div>
@@ -48,8 +48,7 @@
           const obfuscatedEmail = user + '[at]' + domain;
           emailReveal.textContent = obfuscatedEmail;
           emailReveal.style.cursor = 'default';
-          emailReveal.style.textDecoration = 'none';
-          emailReveal.style.color = '#000';
+          // Keep style consistent with page links (no underline by default, bold, colored)
         });
       }
     });
