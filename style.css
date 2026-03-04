@@ -17,6 +17,7 @@
 .page a {
     color: rgb(120, 56, 81);
     text-decoration: none; /* no underline by default */
+    font-weight: 600; /* make colored links bold */
 }
 
 .page a:hover {
@@ -32,6 +33,7 @@
 .lab-link {
     color: rgb(120, 56, 81);
     text-decoration: none; /* no underline by default */
+    font-weight: 600;      /* bold for lab-link style */
 }
 
 /* Only underline on hover */
@@ -56,6 +58,7 @@
     color: inherit;        /* same color as text */
     text-decoration: none; /* no underline by default */
     transition: color 0.2s ease;
+    font-weight: 600;      /* make publication links bold */
 }
 
 .publication a:hover {
@@ -216,5 +219,10 @@ footer {
 /* Publications styling */
 ol li {
   margin-bottom: 1rem;
+}
+
+/* Vertical spacing between research topics list items only */
+.research-topics > li {
+  margin-bottom: 1rem; /* add vertical space between items */
 }
 
